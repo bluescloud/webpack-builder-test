@@ -1,6 +1,6 @@
 {
   "name": "@bluescloud/webpack-builder-test",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -62,10 +62,9 @@
     "webpack-cli": "^3.3.4",
     "webpack-merge": "^4.2.1"
   },
-
   "husky": {
-      "hooks": {
-          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-      }
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
