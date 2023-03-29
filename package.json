@@ -5,22 +5,29 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/_mocha",
-    "eslint": "eslint ./lib --fix"
+    "eslint": "eslint ./lib --fix",
+    "commitmsg": "validate-commit-msg",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
     "assert": "^2.0.0",
     "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
+    "conventional-changelog-cli": "^1.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.27.5",
     "glob-all": "^3.1.0",
+    "husky": "^0.13.1",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^6.1.4",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "validate-commit-msg": "^2.11.1"
   },
   "dependencies": {
     "autoprefixer": "^9.5.1",
@@ -55,5 +62,20 @@
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
     "webpack-merge": "^4.2.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "gulp lint",
+      "commit-msg": "validate-commit-msg",
+      "pre-push": "make test",
+      "post-merge": "npm install",
+      "post-rewrite": "npm install"
+    }
+  },
+
+  "husky": {
+      "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      }
   }
 }
