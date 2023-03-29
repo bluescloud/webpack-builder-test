@@ -6,7 +6,6 @@
   "scripts": {
     "test": "./node_modules/.bin/_mocha",
     "eslint": "eslint ./lib --fix",
-    "commitmsg": "validate-commit-msg",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "keywords": [],
@@ -62,15 +61,6 @@
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
     "webpack-merge": "^4.2.1"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "gulp lint",
-      "commit-msg": "validate-commit-msg",
-      "pre-push": "make test",
-      "post-merge": "npm install",
-      "post-rewrite": "npm install"
-    }
   },
 
   "husky": {
